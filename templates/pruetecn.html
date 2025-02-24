@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Prueba Validar CSV{% endblock %}
+
+{% block content %}
+
+<!-- About Section -->
+<section id="about" class="about section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Prueba</h2>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+        <div class="container mt-4">
+          <div class="card shadow-lg p-4">
+            
+
+        <ol>
+          <li>
+            <p>
+              <strong>Desarrollo en Django: </strong> En el siguiente <a
+                href="https://drive.google.com/drive/folders/1IdTj3pbCwzuYmmuIH3up8wkF-msYjqU_" target="_blank"
+                rel="noopener noreferrer">enlace</a> encontrará un archivo plano
+              separado por comas, el cual tiene 5 columnas y 10 registros. Cree una aplicación
+              en Django que permita subir el archivo y valide su estructura de la siguiente
+              manera:
+            </p>
+            <ul>
+              <li>
+                a. El archivo solo debe permitir las 5 columnas, si existen más o menos
+                deberá alertar al usuario
+
+              </li>
+              <li>
+                b. Columna 1: Solo debe permitir números enteros entre 3 y 10 caracteres
+              </li>
+              <li>
+                c. Columna 2: Solo debe permitir correos electrónicos
+              </li>
+              <li>
+                d. Columna 3: Solo debe permitir los valores “CC” o “TI”
+              </li>
+              <li>
+                e. Columna 4: Solo debe permitir valores entre 500000 y 1500000
+              </li>
+              <li>
+                f. Columna 5: Permite cualquier valor
+              </li>
+            </ul>
+            <p>
+
+
+              El programa deberá mostrar los resultados de validación en la página después de que
+              se cargue el archivo. En caso de error: la fila y la columna del error. En caso de éxito:
+              un mensaje de archivo validado.
+            </p>
+          </li>
+          <li>
+            <p>
+
+
+              <strong> Desarrollo en Python:</strong> En el siguiente <a
+                href="https://drive.google.com/drive/folders/1JHdtxrMLFAcZIW-S-cfD-7niA_5ALrPK" target="_blank"
+                rel="noopener noreferrer">enlace</a> encontrará 10 facturas en formato
+              PDF. Cree un script en Python que extraiga la información del CUFE con la
+              siguiente expresión regular <strong>(\b([0-9a-fA-F]\n*){95,100}\b) </strong>de los archivos.
+            </p>
+            <p>
+              Almacene el resultado en una base de datos SQLite con la siguiente información:
+            </p>
+            <ul>
+              <li>
+                a. Nombre del archivo
+              </li>
+              <li>
+
+                b. Numero de paginas
+              </li>
+              <li>
+                c. CUFE
+              </li>
+              <li>
+                d. Peso del archivo
+              </li>
+            </ul>
+
+          </li>
+        </ol>
+      
+      
+      
+      </div>
+    </div>
+  </div>
+
+      <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+        <div class="container mt-4">
+          <div class="card shadow-lg p-4">
+            <h2 class="text-center mb-4">Subir Archivo CSV</h2>
+
+            <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+              {% csrf_token %}
+
+              <div class="mb-3">
+                <label for="fileInput" class="form-label fw-bold">Selecciona un archivo CSV:</label>
+                {{ form.file }}
+                <div class="form-text">Asegúrate de que el archivo tenga el formato correcto.</div>
+              </div>
+
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  <i class="fas fa-upload"></i> Cargar archivo
+                </button>
+              </div>
+            </form>
+
+            {% if result %}
+            <div class="alert mt-3 {% if 'error' in result|lower %}alert-danger{% else %}alert-success{% endif %}">
+              <i class="fas {% if 'error' in result|lower %}fa-times-circle{% else %}fa-check-circle{% endif %}"></i>
+              {{ result }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</section><!-- /About Section -->
+
+{% endblock %}

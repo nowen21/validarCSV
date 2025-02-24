@@ -1,0 +1,18 @@
+<header id="header" class="header d-flex align-items-center {{ class }}">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.webp" alt=""> -->
+            <h1 class="sitename">José Dúmar Jiménez Ruíz</h1>
+        </a>
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="{% url 'index' %}" class="{% if request.path == '/index/' %}active{% endif %}">Home</a>
+                </li>
+                <li><a href="{% url 'pruetecn' %}" class="{% if request.path == '/pruetecn/' %}active{% endif %}">Prueba Técnica</a>
+                </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+    </div>
+</header>

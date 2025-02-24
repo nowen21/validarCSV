@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Prueba Validar CSV{% endblock %}
+
+{% block content %}
+ <!-- Hero Section -->
+ <section id="hero" class="hero section dark-background">
+
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+        <h1>Prueba Técnica para Desarrollador Full Stack</h1>
+        <p>Desorrollo de una aplicación Django que valide un archivo CSV</p>
+        
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+        <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- /Hero Section -->
+{% endblock %}
