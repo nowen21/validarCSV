@@ -15,6 +15,12 @@
 
 ---
 
+## 🗉️ **Manuales**  
+- 👉 **Manual de Usuario**  
+- 👉 **Manual Técnico**  
+
+---
+
 ## 🔧 Requisitos Técnicos  
 
 ### 🗉️ **Requisitos del sistema**  
